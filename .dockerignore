@@ -1,0 +1,55 @@
+# Ignorar arquivos e pastas de sistema
+*.DS_Store
+*.AppleDouble
+*.LSOverride
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Ignorar logs
+*.log
+logs
+*.out
+
+# Ignorar ambientes virtuais
+venv/
+.env/
+.venv/
+
+# Ignorar arquivos de configuração locais
+.env
+*.env
+
+# Ignorar cache do Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pyc
+*.pyo
+*.pyd
+*.pdb
+
+# Ignorar arquivos temporários
+*.swp
+*.tmp
+*.bak
+*.backup
+
+# Ignorar dependências node
+node_modules/
+
+# Ignorar arquivos de compilação
+dist/
+build/
+*.egg-info/
+
+# Ignorar arquivos de IDEs
+.vscode/
+.idea/
+*.iml
+
+# Ignorar arquivos do Git
+.git/
+.gitignore

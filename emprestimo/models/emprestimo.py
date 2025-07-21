@@ -20,7 +20,7 @@ class Emprestimo(models.Model):
         help_text="Taxa de juros mensal em percentual"
     )
     ip_cadastro = models.GenericIPAddressField()
-    data_solicitacao = models.DateTimeField(auto_now_add=True)
+    data_solicitacao = models.DateField(auto_now_add=True)
     banco = models.CharField(max_length=200)
     cliente = models.CharField(max_length=100)
     created_at = models.DateTimeField(auto_now_add=True)

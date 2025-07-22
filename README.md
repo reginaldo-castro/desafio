@@ -143,7 +143,7 @@ docker-compose exec infra-web-1 python manage.py test
 ## Testes implementados
 
 #### Modelos
-Testes de criação, validação e relacionamento dos modelos Emprestimo e Pagamento.
+- Testes de criação, validação e relacionamento dos modelos Emprestimo e Pagamento.
 
 ### Views (API)
 - Testes dos principais endpoints REST:

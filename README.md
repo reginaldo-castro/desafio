@@ -127,7 +127,8 @@ A documentação da API REST está disponível nos formatos interativos abaixo:
 ## 📋 Testes Automatizados
 
 ```
-O projeto conta com uma suíte de testes automatizados utilizando o framework de testes do Django (unittest). Eles garantem a confiabilidade das funcionalidades da API e dos modelos.
+O projeto conta com uma suíte de testes automatizados utilizando o framework de testes do Django. 
+Eles garantem a confiabilidade das funcionalidades da API e dos modelos.
 ```
 
 ### Como executar os testes

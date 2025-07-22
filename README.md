@@ -126,32 +126,34 @@ A documentação da API REST está disponível nos formatos interativos abaixo:
 
 ## 📋 Testes Automatizados
 
-```O projeto conta com uma suíte de testes automatizados utilizando o framework de testes do Django (unittest). 
-    Eles garantem a confiabilidade das funcionalidades da API e dos modelos.
+```
+O projeto conta com uma suíte de testes automatizados utilizando o framework de testes do Django (unittest). Eles garantem a confiabilidade das funcionalidades da API e dos modelos.
 ```
 
 ### Como executar os testes
-    - docker-compose exec infra-web-1 python manage.py test
+
+docker-compose exec infra-web-1 python manage.py test
   
 ### Organização dos testes
-    - emprestimo/test/models/ — testes unitários dos modelos (Emprestimo, Pagamento)
-    - emprestimo/test/views/ — testes de integração dos endpoints da API (emprestimos e pagamentos)
-    - emprestimo/test/base/ — casos base para os testes
+
+- emprestimo/test/models/ — testes unitários dos modelos (Emprestimo, Pagamento)
+- emprestimo/test/views/ — testes de integração dos endpoints da API (emprestimos e pagamentos)
+- emprestimo/test/base/ — casos base para os testes
 
 ## Testes implementados
 
 #### Modelos
-    - Testes de criação, validação e relacionamento dos modelos Emprestimo e Pagamento.
+Testes de criação, validação e relacionamento dos modelos Emprestimo e Pagamento.
 
 ### Views (API)
-    - Testes dos principais endpoints REST:
+- Testes dos principais endpoints REST:
 
-    - GET /api/emprestimos/ — listar empréstimos
-    - POST /api/emprestimos/ — criar empréstimos
-    - GET /api/emprestimos/<uuid>/saldo_devedor/ — consulta de saldo devedor
-    - GET /api/emprestimos/resumo_financeiro/ — resumo financeiro
-    - GET /api/pagamentos/ — listar pagamentos
-     - POST /api/pagamentos/ — criar pagamentos
+- GET /api/emprestimos/ — listar empréstimos
+- POST /api/emprestimos/ — criar empréstimos
+- GET /api/emprestimos/<uuid>/saldo_devedor/ — consulta de saldo devedor
+- GET /api/emprestimos/resumo_financeiro/ — resumo financeiro
+- GET /api/pagamentos/ — listar pagamentos
+- POST /api/pagamentos/ — criar pagamentos
 
 ## 🗑️ Parar os containers
 ```

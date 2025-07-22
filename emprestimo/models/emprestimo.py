@@ -38,5 +38,4 @@ class Emprestimo(models.Model):
         pass
     
     def calcular_juros_periodo(self, data_inicio, data_fim):
-        """Calcula juros para um período específico"""
         pass

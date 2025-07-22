@@ -3,7 +3,7 @@ from emprestimo.models.emprestimo import Emprestimo
 from emprestimo.models.pagamento import Pagamento
 from decimal import Decimal
 
-class PagamentoSerializer(serializers.ModelSerializer):
+class PagamentoListSerializer(serializers.ModelSerializer):
     
     class Meta:
         model = Pagamento

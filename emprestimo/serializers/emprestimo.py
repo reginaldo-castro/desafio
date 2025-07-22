@@ -2,11 +2,11 @@ from rest_framework import serializers
 from emprestimo.models.emprestimo import Emprestimo
 from emprestimo.models.pagamento import Pagamento
 from decimal import Decimal
-from emprestimo.serializers.pagamento import PagamentoSerializer
+from emprestimo.serializers.pagamento import PagamentoListSerializer
 
 class EmprestimoListSerializer(serializers.ModelSerializer):
     
-    pagamentos = PagamentoSerializer(many=True, read_only=True)
+    pagamentos = PagamentoListSerializer(many=True, read_only=True)
     cliente_nome = serializers.CharField(source="cliente.nome", read_only=True)
     banco_nome = serializers.CharField(source="banco.nome", read_only=True)
     

@@ -3,6 +3,7 @@ from emprestimo.models.emprestimo import Emprestimo
 from emprestimo.models.pagamento import Pagamento
 from decimal import Decimal
 from emprestimo.serializers.pagamento import PagamentoSerializer
+from rest_framework.exceptions import ValidationError
 
 class EmprestimoListSerializer(serializers.ModelSerializer):
     
@@ -31,13 +32,13 @@ class EmprestimoListSerializer(serializers.ModelSerializer):
     def validate_valor_nominal(self, value):
         
         if value <= 0:
-            raise serializers.ValidationError("Valor nominal deve ser positivo")
+            raise ValidationError("Valor nominal deve ser positivo")
         return value
     
     def validate_taxa_juros(self, value):
         
         if value <= 0 or value > 99.99:
-            raise serializers.ValidationError("Taxa de juros deve estar entre 0.01% e 99.99%")
+            raise ValidationError("Taxa de juros deve estar entre 0.01% e 99.99%")
         return value
      
 class EmprestimoCreateSerializer(serializers.ModelSerializer):

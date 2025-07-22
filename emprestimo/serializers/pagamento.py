@@ -2,6 +2,7 @@ from rest_framework import serializers
 from emprestimo.models.emprestimo import Emprestimo
 from emprestimo.models.pagamento import Pagamento
 from decimal import Decimal
+from rest_framework.exceptions import ValidationError
 
 class PagamentoSerializer(serializers.ModelSerializer):
     
@@ -13,7 +14,7 @@ class PagamentoSerializer(serializers.ModelSerializer):
     def validate_valor_pagamento(self, value):
         
         if value <= 0:
-            raise serializers.ValidationError("Valor do pagamento deve ser positivo")
+            raise ValidationError("Valor do pagamento deve ser positivo")
         return value
     
     def validate(self, data):
@@ -23,7 +24,7 @@ class PagamentoSerializer(serializers.ModelSerializer):
         
         if emprestimo and data_pagamento:
             if data_pagamento < emprestimo.data_solicitacao:
-                raise serializers.ValidateError(
+                raise ValidationError(
                     "Data de pagamento não pode ser anterior à data de solicitação"
                 )
                 

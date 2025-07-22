@@ -15,6 +15,10 @@ class PagamantoViewSet(viewsets.ModelViewSet):
     def perform_create(self, serializer):
         
         emprestimo = serializer.validated_data["emprestimo"]
+        
+        if emprestimo is None:
+            raise ValidationError("O campo 'emprestimo' é obrigatório.")
+        
         if emprestimo.usuario != self.request.user:
             raise ValidationError("Empréstimo não encontrado")
         serializer.save()

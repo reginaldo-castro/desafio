@@ -9,16 +9,37 @@ class EmprestimoListSerializer(serializers.ModelSerializer):
     pagamentos = PagamentoListSerializer(many=True, read_only=True)
     cliente_nome = serializers.CharField(source="cliente.nome", read_only=True)
     banco_nome = serializers.CharField(source="banco.nome", read_only=True)
+    saldo_devedor = serializers.SerializerMethodField()
     
     class Meta:
         model = Emprestimo
         fields = [
             "id", "valor_nominal", "taxa_juros", "ip_cadastro", 
             "data_solicitacao", "banco", "cliente", "created_at",
-            "pagamentos", "cliente_nome", "banco_nome"
+            "pagamentos", "cliente_nome", "banco_nome", "saldo_devedor"
         ]
         read_only_fields = ["id", "created_at"]
+    
+    def get_saldo_devedor(self, obj):
+        
+        return obj.calcular_saldo_devedor()
+    
+    def get_total_pagamentos(self, obj):
+        
+        return sum(p.valor_pagamento for p in obj.pagamentos.all())
 
+    def validate_valor_nominal(self, value):
+        
+        if value <= 0:
+            raise serializers.ValidationError("Valor nominal deve ser positivo")
+        return value
+    
+    def validate_taxa_juros(self, value):
+        
+        if value <= 0 or value > 99.99:
+            raise serializers.ValidationError("Taxa de juros deve estar entre 0.01% e 99.99%")
+        return value
+     
 class EmprestimoCreateSerializer(serializers.ModelSerializer):
         
     class Meta:

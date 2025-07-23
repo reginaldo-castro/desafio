@@ -115,6 +115,34 @@ A documentação da API REST está disponível nos formatos interativos abaixo:
 - Swagger UI: [http://127.0.0.1:8000/api/docs/](http://127.0.0.1:8000/api/docs/)
 - OpenAPI(JSON): [http://127.0.0.1:8000/api/schema/](http://127.0.0.1:8000/api/schema/)
   
+## 🔐 Como gerar o token de autenticação
+
+Para autenticar nas chamadas da API, é necessário gerar um token de autenticação usando as credenciais do usuário.
+
+### Endpoint para obtenção do token
+```
+http://127.0.0.1:8000/api-token-auth/
+```
+
+### Criar um usuário
+```
+docker-compose exec infra-web-1 python manage.py createsuperuser
+```
+### Exemplo usando `curl`
+
+```
+bash
+curl -X POST http://127.0.0.1:8000/api-token-auth/ \
+-H "Content-Type: application/json" \
+-d '{"username": "usuario", "password": "senha"}'
+```
+### Resposta esperada
+```
+{
+  "token": "valor_token"
+}
+
+```
 
 ## 🐘 Acesso ao banco PostgreSQL (opcional)
 

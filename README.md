@@ -26,7 +26,6 @@ O projeto está configurado para rodar em contêineres Docker para desenvolvimen
 - Python 3.12
 - Docker 🐳
 - PostgreSQL 🐘
-- OpenWeather API ☁️
 - Django REST Framework
 
 
